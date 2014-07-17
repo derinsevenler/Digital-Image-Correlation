@@ -1,0 +1,3417 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 12">
+<meta name=Originator content="Microsoft Word 12">
+<link rel=File-List href="Correlation_Tracking_Guide_2010-Dateien/filelist.xml">
+<link rel=Edit-Time-Data
+href="Correlation_Tracking_Guide_2010-Dateien/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Digital Image Correlation / Tracking with Matlab</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="country-region"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>chris</o:Author>
+  <o:LastAuthor>Chris</o:LastAuthor>
+  <o:Revision>11</o:Revision>
+  <o:LastPrinted>2006-09-26T09:59:00Z</o:LastPrinted>
+  <o:Created>2010-08-09T21:22:00Z</o:Created>
+  <o:LastSaved>2010-11-19T23:43:00Z</o:LastSaved>
+  <o:Pages>13</o:Pages>
+  <o:Words>5695</o:Words>
+  <o:Characters>35881</o:Characters>
+  <o:Lines>299</o:Lines>
+  <o:Paragraphs>82</o:Paragraphs>
+  <o:CharactersWithSpaces>41494</o:CharactersWithSpaces>
+  <o:Version>12.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=dataStoreItem
+href="Correlation_Tracking_Guide_2010-Dateien/item0055.xml"
+target="Correlation_Tracking_Guide_2010-Dateien/props0056.xml">
+<link rel=themeData
+href="Correlation_Tracking_Guide_2010-Dateien/themedata.thmx">
+<link rel=colorSchemeMapping
+href="Correlation_Tracking_Guide_2010-Dateien/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>90</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>DE</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Fußzeile Zchn";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 207.65pt right 415.3pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Sprechblasentext Zchn";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+span.FuzeileZchn
+	{mso-style-name:"Fußzeile Zchn";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Fußzeile;
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;}
+span.SprechblasentextZchn
+	{mso-style-name:"Sprechblasentext Zchn";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Sprechblasentext;
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-title-page:yes;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:115176168;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1081054766 67567631 67567641 67567643 67567631 67567641 67567643 67567631 67567641 67567643;}
+@list l0:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:564031663;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1470025164 894173392 67567619 67567621 67567617 67567619 67567621 67567617 67567619 67567621;}
+@list l1:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:71.4pt;
+	text-indent:-18.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+@list l1:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2
+	{mso-list-id:725103925;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1430781362 894173392 67567619 67567621 67567617 67567619 67567621 67567617 67567619 67567621;}
+@list l2:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+@list l2:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3
+	{mso-list-id:1467965214;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1054988678 -152814394 67567619 67567621 67567617 67567619 67567621 67567617 67567619 67567621;}
+@list l3:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+@list l3:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4
+	{mso-list-id:1996179431;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1916686938 67567631 67567641 67567643 67567631 67567641 67567643 67567631 67567641 67567643;}
+@list l4:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Normale Tabelle";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="4098"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=DE link=blue vlink=purple style='tab-interval:35.4pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='font-size:24.0pt;mso-ansi-language:EN-US'>Digital Image Correlation<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span class=GramE><span
+lang=EN-US style='font-size:24.0pt;mso-ansi-language:EN-US'>and</span></span><span
+lang=EN-US style='font-size:24.0pt;mso-ansi-language:EN-US'> Tracking with
+Matlab<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Programmed by:<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Chris Eberl, Robert Thompson, Daniel Gianola,
+Sven Bundschuh<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'>@ Karlsruhe Institute of Technology, Germany,
+Group of Chris Eberl<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'>@ Johns Hopkins University, USA, Group of Kevin
+J. Hemker<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'>chris.eberl@kit.edu or chris.eberl@jhu.edu<o:p></o:p></span></p>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+DE;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='font-size:18.0pt;mso-ansi-language:EN-US'>1. Introduction<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Measuring strain in samples which are too
+small, big, compliant, soft or hot are typical scenarios where non-contact
+techniques are needed. A technique which can cover all that and also can deal
+with complicated strain fields in structures or structural materials is the
+Digital Image Correlation. With this technique, strain can be calculated from a
+series of consecutive images with sub pixel resolution as will be shown in the
+following chapters. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Even though there are tons of codes from the
+image registration, artificial intelligence or the robotics community, none of
+them can easily be used by the strain measuring community. Commercial code is
+available also and has the advantage of getting a guaranty that it works, is
+nicely designed and has well thought through user interfaces and typically a
+higher processing speed. The disadvantages are, that commercial software
+typically has to be paid in k$, is available only as package with hardware,
+enjoys a notorious lack of programming interfaces or tools to change the code
+to fit it into a test setup as well as the probability of inaccessible data in
+case the software license is not valid anymore or it does not run on the new
+and fancy computer anymore. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Out of all these reasons this code was started
+together with Rob Thompson and Dan Gianola during my stay in the group of Kevin
+J. Hemker at the <st1:place w:st="on"><st1:PlaceName w:st="on">Johns</st1:PlaceName>
+ <st1:PlaceName w:st="on">Hopkins</st1:PlaceName> <st1:PlaceType w:st="on">University</st1:PlaceType></st1:place>
+in <st1:place w:st="on"><st1:City w:st="on">Baltimore</st1:City>, <st1:State
+ w:st="on">MD</st1:State>, <st1:country-region w:st="on">USA</st1:country-region></st1:place>.
+Considerable extensions and new code as well as all the multi core stuff was
+added while Chris was heading a group (‘<span class=SpellE>microreliability</span>’)
+at the KIT.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>This code is not meant to be a direct
+competitor to commercial code since we have not the time to make it as easy to
+use as possible but as a different option with the advantages to be ‘free’,
+‘flexible’ and ‘scalable’. ‘Free’ in terms of free access even though we would
+like to ask you to cite our code in case you use it and ‘free’ again even
+though you need to buy <span class=SpellE>matlab</span> together with some
+toolboxes. Since most research institutions have access to this important tool
+I think we still can name it ‘free’. ‘Flexible’ in terms of the relative easy
+way you can enhance this <span class=SpellE>matlab</span> code as a script
+language where you can add either other toolboxes or your own code to flex it
+around your application. We would appreciate it if you as a user could share
+your own code with all of us out here so we can learn from your creativity. And
+‘scalable’ since you can easily start several sessions to process your images
+on more than one processor (core) and the newest code segments are already
+ready to use <span class=SpellE>multicores</span> and because you can also use
+Graphic Processing Units (GPU = the graphics processor on a graphics card,
+http://dside.dyndns.org/dict ) or other add-on boards to enhance processing
+speed.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>In case you are still reading, we would like to
+wish you fun using this code and hope we were able to provide you with a useful
+tool to help your with your experiments. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Cheers, Chris. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Karlsruhe, August 2010.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+DE;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='font-size:18.0pt;mso-ansi-language:EN-US'>2. Requirements and
+Installation<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><u><span lang=EN-US style='mso-ansi-language:EN-US'>REQUIEREMENTS:<o:p></o:p></span></u></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>You will need <b style='mso-bidi-font-weight:
+normal'>Matlab 7 (R14) or higher</b> (since the <span class=SpellE>dlmwrite.m</span>
+in Matlab 6.5 does not work, at least for me and this is a really important
+function since it stores the data after each calculation step). And you will
+need the following <b style='mso-bidi-font-weight:normal'>TOOLBOXES</b>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Optimization</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'> (all fitting processes depends on
+this toolbox)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Image processing</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'> (obviously)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>Optional
+the<b style='mso-bidi-font-weight:normal'> Parallel Computing Toolbox </b>(If
+you want to use <span class=SpellE>multicores</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>You need to download the following .m files
+from <span class=SpellE>matlab</span> central if you want <span class=GramE>a
+full</span> field interpolated strain field visualization:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>‘<span class=SpellE>surfit.m</span>’, ‘<span
+class=SpellE>polyfic.m</span>’ and ‘<span class=SpellE>polyvac.m</span>’ from <span
+class=SpellE>Vassili</span> <span class=SpellE>Pastushenko</span> at the <span
+class=SpellE>matlab</span> central exchange into your <span class=SpellE>matlab</span>
+work folder<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><u><span lang=EN-US style='mso-ansi-language:EN-US'>INSTALLATION STEP
+1:<o:p></o:p></span></u></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Copy the files from the zip file you just
+downloaded from the <span class=SpellE>mathworks</span> server into the work
+folder in your <span class=SpellE>matlab</span> folder (e.g. in windows:
+c:\matlab65\work or into your Matlab folder, in Windows it is found in your
+Documents section):<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>automate_image.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                            </span>(this
+function does all the hard correlation work)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>automate_image_ld.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                       </span>(is
+used by <span class=SpellE>large_displ.m</span> special version for large
+displacement, needs <span class=SpellE>automate_image_rf.m</span> - this
+function does all the hard correlation work)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>automate_image_mp_2009b.m<span
+style='mso-tab-count:1'>         </span>(special version for multi processor
+calculation - this function does all the hard correlation work)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>automate_image_rf.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                        </span>(is
+used by <span class=SpellE>automate_image_ld.m</span>)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>displacement.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                  </span>(this
+function will help you analyzing your data)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>filelist_generator.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                            </span>(generates
+file name lists with max. 8 letters and ‘.<span class=SpellE>tif</span>’ at the
+end and creates a <span class=SpellE>time_image</span> list needed for merging
+stress and strain)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>gauss_onepk.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                  </span>(the
+gauss equation called by the <span class=SpellE>peaktracking</span> functions)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>gauss_twopk.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                  </span>(same
+as <span class=SpellE>gauss_onepk.m</span> but with two peaks…)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>grid_generator.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                               </span>(generates
+grid raster needed for the correlation code)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>jobskript.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                                         </span>(script
+to create batch process if you want to do a couple of folders)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>jobskript_mp.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                  </span>(special
+version for multi processor code - script to create batch process if you want
+to do a couple of folders)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>large_displ.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                                     </span>(use
+this if the displacement exceeds your correlation area)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>line_visual.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                                      </span>(needed
+for the <span class=SpellE>strain_lineprofile.m</span>)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>linearfit.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                                          </span>(contains
+the linear equation)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>local_strainx.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                  </span>(this
+function calculates the local resolved strain in the horizontal)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>Markerplotting.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                               </span>(create
+images with the position of the marker)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>multipeak_tracking.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                        </span>(track
+multiple peaks along one axis)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>peak_labelling.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                </span>(this
+function is searching and tracking peaks)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>pickpeak.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:4'>                                        </span>(similar
+to <span class=SpellE>peak_labelling.m</span> but you have to pick peaks by
+yourself)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>ppselection_func.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                           </span>(this
+function is needed by <span class=SpellE>displacement.m</span>)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>resume_automate_image.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>               </span>(restart
+calculation if it has stopped by any reason)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>RTCorrCode.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                  </span>(“real-time”
+correlation code)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>sortvalidpoints.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                               </span>(this
+function finds the tracked peaks and has to be called after <span class=SpellE>peak_labelling</span>
+or <span class=SpellE>pickpeak</span>)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>strain_lineprofile_marker.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>               </span>(tracking
+two markers in a <span class=SpellE>lineprofile</span>)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:71.4pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>stress_strainmatch.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                         </span>(combines
+correlation results and log file from tensile test machine)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:71.4pt;mso-add-space:auto;
+text-align:justify;text-indent:-18.0pt;mso-list:l1 level1 lfo4'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span lang=EN-US
+style='mso-ansi-language:EN-US'>validxy_mean.m</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                </span>(calculate
+the mean over a couple of images)<o:p></o:p></span></p>
+
+<b style='mso-bidi-font-weight:normal'><u><span lang=EN-US style='font-size:
+12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-fareast-language:DE;mso-bidi-language:AR-SA'><br
+clear=all style='page-break-before:always'>
+</span></u></b>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><u><span lang=EN-US style='mso-ansi-language:EN-US'>INSTALLATION STEP
+2:<o:p></o:p></span></u></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>In <span class=SpellE>cpcorr.m</span> (type
+‘open <span class=SpellE>cpcorr</span>’ at the <span class=SpellE>matlab</span>
+prompt) you have to change <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l3 level1 lfo6;tab-stops:list 18.0pt 36.0pt'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='mso-ansi-language:EN-US'>in line 77: <o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>CORRSIZE = 5; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>      </span><span
+class=GramE>to</span>: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>CORRSIZE = 15;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'>(This changes the size of the selected parts of the image which will be correlated
+from 10x10 pixels to 30x30. Change this to smaller values if you experience
+slow computational speed or if you use low resolution images. Remember that
+markers need more than double the space from its centre to the edge of the
+image, otherwise they cannot be tracked.)<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l3 level1 lfo6;tab-stops:list 18.0pt 36.0pt'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='mso-ansi-language:EN-US'>in line 134 and 135:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>input_fractional_offset</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> = <span class=SpellE><span
+class=GramE>xyinput</span></span><span class=GramE>(</span><span class=SpellE>icp</span>,:)
+- round(<span class=SpellE>xyinput</span>(<span class=SpellE>icp</span>,:));<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>base_fractional_offset</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> = <span class=SpellE>xybase_<span
+class=GramE>in</span></span><span class=GramE>(</span><span class=SpellE>icp</span>,:)
+- round(<span class=SpellE>xybase_in</span>(<span class=SpellE>icp</span>,:));<span
+style='mso-spacerun:yes'>    </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>      </span><span
+class=GramE>to</span>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>input_fractional_offset</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> = <span class=SpellE><span
+class=GramE>xyinput</span></span><span class=GramE>(</span><span class=SpellE>icp</span>,:)
+- round(<span class=SpellE>xyinput</span>(<span class=SpellE>icp</span>,:)*1000)/1000;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>base_fractional_offset</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> = <span class=SpellE>xybase_<span
+class=GramE>in</span></span><span class=GramE>(</span><span class=SpellE>icp</span>,:)
+- round(<span class=SpellE>xybase_in</span>(<span class=SpellE>icp</span>,:)*1000)/1000;<span
+style='mso-spacerun:yes'>    </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'>(This is changing the resolution of the marker positions to 1/1000<sup>th</sup>
+pixel. If you need higher resolution just increase these values)<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span class=GramE><span
+lang=EN-US style='mso-ansi-language:EN-US'>In <span class=SpellE>findpeak.m</span>
+(which you will find in the private functions section off the Image processing
+Toolbox folder).</span></span><span lang=EN-US style='mso-ansi-language:EN-US'>
+The easiest way to get to it is to find it in <span class=SpellE>cpcorr.m</span>
+in line 115, right click it and go to open selection. Sometimes you will need
+to change the property settings so you can save it as a normal user. You can
+also start Matlab as an administrator, change <span class=SpellE>findpeak.m</span>
+and log in as a user again:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>- line 58 and 59 from:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span><span
+class=SpellE>x_offset</span> = <span class=GramE>round(</span>10*<span
+class=SpellE>x_offset</span>)/10;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span><span
+class=SpellE>y_offset</span> = <span class=GramE>round(</span>10*<span
+class=SpellE>y_offset</span>)/10;<span style='mso-spacerun:yes'>    </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span class=GramE><span
+lang=EN-US style='mso-ansi-language:EN-US'>to</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span><span
+class=SpellE>x_offset</span> = <span class=GramE>round(</span>1000*<span
+class=SpellE>x_offset</span>)/1000;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span><span
+class=SpellE>y_offset</span> = <span class=GramE>round(</span>1000*<span
+class=SpellE>y_offset</span>)/1000;<span style='mso-spacerun:yes'>    </span><o:p></o:p></span></p>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+DE;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='font-size:18.0pt;mso-ansi-language:EN-US'>3. Good things to know about <span
+class=SpellE>matlab</span>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>The <span class=SpellE>matlab</span> help is
+extremely helpful and should be the very first location you look in case of
+errors. If you never worked with <span class=SpellE>matlab</span> but would
+like to check it out, the ‘Getting Started’ is a good point to start with. I
+started there in summer 2005. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>TAB:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Pressing the TAB key on your keyboard after you
+started typing in a command at the command line of <span class=SpellE>matlab</span>
+will show you all functions with the same first letters.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>Arrow up function:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Pressing the Arrow Up key on your keyboard
+after you started typing a command will show the <b style='mso-bidi-font-weight:
+normal'>last </b>command you started with the same first letters.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>Current Folder:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>The ‘Current Folder’ of <span class=SpellE>matlab</span>
+is the folder on your <span class=SpellE>harddisk</span> which is currently
+selected to process data in <span class=SpellE>matlab</span> (close to the
+upper edge of the <span class=SpellE>matlab</span> window). Functions like ‘<span
+class=SpellE>automate_image.m</span>’ require certain files to be present in
+the ‘Current Folder’ otherwise they will produce an error (see description later
+on). Pressing the little button on the right hand side with the three little
+dots on it will let you select another folder. Another possibility is to use
+the command window (see <span class=SpellE>matlab</span> help) or you can
+select the current directory if it is activated under ‘View’ in that extra
+window.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>Set semicolon:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Set the semicolon after calling a function
+(e.g. ‘<span class=SpellE>automate_<span class=GramE>image</span></span><span
+class=GramE>;</span>’), otherwise all data which you get back from a called
+function will be plotted in the command window.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>Workspace:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>The Workspace is the place where you can load
+all your data into. Functions called by you will write their values into the
+workspace and scripts will use the workspace all the time and leave a mess of
+variables in there. If you do not know what is going on check out the ‘Getting
+Started’ paragraph in the <span class=SpellE>matlab</span> help. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>How to load data?<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>If you have loaded data into the workspace
+(either by choosing ‘File’ </span><span lang=EN-US style='font-family:Wingdings;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-char-type:symbol;mso-symbol-font-family:Wingdings'><span
+style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> ‘Open…’ and selected the data file
+you wanted to load or using the command window e.g. by typing: ‘load('<span
+class=SpellE>filenamelist</span>')’ and <span class=SpellE>filenamelist</span>
+is present in the Current Directory) the data will appear in the workspace
+window.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>How to saved data from
+Workspace to the hard disk?<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>If you want to save data from the workspace to
+the hard disk, right click on it and select ‘Save Selection As…<span
+class=GramE>’.</span> It will save the data with the <span class=SpellE>matlab</span>
+file <span class=SpellE>fomat</span>. This data is only accessible by <span
+class=SpellE>matlab</span>. If you want to process the data also with other
+programs you should consider <span class=GramE>to save</span> the data as ASCII
+file. Therefore type in the <span class=SpellE>matlab</span> console window <span
+class=GramE>‘save(</span>'<span class=SpellE>stress.txt','alltemp</span>','-ASCII');’
+to save the variable <span class=SpellE>alltemp</span> as text file<span
+style='mso-spacerun:yes'>  </span>with the name ‘stress.txt’ to the ‘Current
+directory’.<span style='mso-spacerun:yes'>  </span>If you want to open it with <span
+class=SpellE>matlab</span> or excel you have to import the file. The delimiter
+is per default TAB but can also be chosen to be comma or space (see <span
+class=SpellE>matlab</span> help).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>How to give data in
+the workspace to the functions?<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>If you type ‘displacement;’ into the command
+window of <span class=SpellE>matlab</span>, the function will start and ask you
+for the needed files. Instead you can load the data (e.g. validx.mat and
+validy.mat) into the workspace and then give it to the displacement function by
+typing: <span class=GramE>‘displacement(</span><span class=SpellE>validx,validy</span>);’.
+If have not loaded validx.mat there will be an error message. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>How do I get the data
+from the function into the workspace?<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>If you type ‘[<span class=SpellE>validx<span
+class=GramE>,validy</span></span>]=displacement;’ the variables <span
+class=SpellE>validx</span> and <span class=SpellE>validy</span> will be created
+after running ‘<span class=SpellE>displacement.m</span>’. If you have
+manipulated <span class=SpellE>validx</span> and <span class=SpellE>validy</span>
+(e.g. if you cleaned up the data set from miss-tracked markers) you should save
+them.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>Why are all images opened
+in <span class=SpellE>matlab</span> mirrored to the horizontal center axis of
+the image?</span></b><span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Matlab reads in images like a diagram.
+Therefore pixel (1<span class=GramE>,1</span>) is in the lower left while image
+processing software starts at the upper left corner. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>How to stop a function
+in <span class=SpellE>matlab</span>?</span></b><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span class=GramE><span
+lang=EN-US style='mso-ansi-language:EN-US'>To stop a function press the control
+key (‘<span class=SpellE>Crtl</span>’) together with ‘c’.</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+DE;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='font-size:18.0pt;mso-ansi-language:EN-US'>4. <u>Digital Image
+Correlation Quick Guide<o:p></o:p></u></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>This guide should help you to perform a simple
+and fast analysis of your images. Before we start you should check your image
+format and the naming of your files. The preferred image format is *.tif and
+can be compressed with the <span class=SpellE>packbits</span> compression. JPEG
+or other image formats as well as MPEG video compression formats will not
+provide you with sub pixel resolution since the images are processed to save as
+much space as possible. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>The script we use to create a list of images to
+process (<span class=SpellE>filelist_generator.m</span>) is kind of limited to
+a certain format but it is possible to generate your own list of images. If you
+want to change the format or the names of your images you can use free programs
+like <span class=SpellE>Irfanview</span> (<a href="http://www.irfanview.com/">www.irfanview.com</a>)
+to batch process a huge number of images.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'>4
+Steps to Success:<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l0 level1 lfo8;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><u><span lang=EN-US style='font-size:16.0pt;
+mso-ansi-language:EN-US'>Step: Filename list generation with <span
+class=SpellE>filelist_generator.m</span><o:p></o:p></span></u></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Just type ‘<span class=SpellE>filelist_generator</span>;’
+and press ‘ENTER’ at the command line of <span class=SpellE>matlab</span>. The
+following window should appear:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Bild_x0020_1" o:spid="_x0000_i1064" type="#_x0000_t75"
+ style='width:189.75pt;height:138.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image001.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=253 height=185
+src="Correlation_Tracking_Guide_2010-Dateien/image002.jpg" v:shapes="Bild_x0020_1"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>If you select automatically, the
+following menu will ask you for the first image you would like to process:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_2" o:spid="_x0000_i1063"
+ type="#_x0000_t75" style='width:414.75pt;height:307.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image003.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=410
+src="Correlation_Tracking_Guide_2010-Dateien/image004.jpg" v:shapes="Bild_x0020_2"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Here you can select e.g.
+PIC0001.tif. You will be asked to save the file, please <span class=GramE>do
+not change</span> the name of the filename list as <span class=SpellE>automate_image</span>
+and other tools will need it. You should also save the file in the folder where
+your images are. After that you will be asked if you want to read out the time
+from the images:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_3" o:spid="_x0000_i1062"
+ type="#_x0000_t75" style='width:308.25pt;height:111.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image005.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=411 height=149
+src="Correlation_Tracking_Guide_2010-Dateien/image006.jpg" v:shapes="Bild_x0020_3"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>If you answer yes Matlab can read
+the acquisition time from your images. As the information is gathered <span
+class=SpellE>fro</span> the EXIF data the time resolution is limited to 1
+second.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>If you chose to use manual you will
+find a different window:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_4" o:spid="_x0000_i1061"
+ type="#_x0000_t75" alt="filelist_generator" style='width:243pt;height:102.75pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image007.jpg"
+  o:title="filelist_generator"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=324 height=137
+src="Correlation_Tracking_Guide_2010-Dateien/image007.jpg"
+alt="filelist_generator" v:shapes="Bild_x0020_4"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 1: Input of first and last image to create
+an image list with <span class=SpellE>filelist_generator.m</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The numbers will be the number at
+the end of each filename. After depositing these numbers in the dialog the next
+window will ask for the first 4 letters of the filenames.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_5" o:spid="_x0000_i1060"
+ type="#_x0000_t75" alt="filelist_generator_2" style='width:243pt;height:1in;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image008.jpg"
+  o:title="filelist_generator_2"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=324 height=96
+src="Correlation_Tracking_Guide_2010-Dateien/image008.jpg"
+alt="filelist_generator_2" v:shapes="Bild_x0020_5"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 2: Input for the first 4 letters in <span
+class=SpellE>filelist_generator.m</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The next step is to save the file
+name list into the folder with the images to process.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_6" o:spid="_x0000_i1059"
+ type="#_x0000_t75" alt="filelist_generator_3" style='width:252pt;height:162pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image009.jpg"
+  o:title="filelist_generator_3"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=336 height=216
+src="Correlation_Tracking_Guide_2010-Dateien/image009.jpg"
+alt="filelist_generator_3" v:shapes="Bild_x0020_6"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 3: Dialog to save the file name list into
+the folder with the images to analyze.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l0 level1 lfo8;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><u><span lang=EN-US style='font-size:16.0pt;
+mso-ansi-language:EN-US'>A) Grid generation with <span class=SpellE>grid_generator.m</span>
+for correlation (if you expect large displacement go directly to B!):<o:p></o:p></span></u></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>It has to be noted that the user can
+always generate his own marker positions. Therefore the marker position in pixel
+has to be saved as a text based format where the x-position is saved as
+‘grid_x.dat’ and the y-position saved as ‘grid_y.dat’. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>To start just type ‘<span
+class=SpellE>grid_generator</span>;’ and press ‘ENTER’ at the command line of <span
+class=SpellE>matlab</span>. The following window should appear:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1058" type="#_x0000_t75"
+ style='width:414.75pt;height:307.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image010.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=410
+src="Correlation_Tracking_Guide_2010-Dateien/image011.jpg" v:shapes="_x0000_i1058"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 4: Dialog to open the first (base) image
+to generate a grid<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>In this dialog the first (base)
+image can be selected in which the grid can be created. After selecting this
+base image, the image will be opened and a new dialog pops up to ask you if you
+would like to load an existing grid. If you want to create a new one just hit
+No and <span class=GramE>go</span> ahead.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1057" type="#_x0000_t75"
+ style='width:414.75pt;height:403.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image012.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=538
+src="Correlation_Tracking_Guide_2010-Dateien/image013.jpg" v:shapes="_x0000_i1057"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 5: The opened base image and the menu to
+select a preexisting grid.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>You will get a new choice where you
+can select a shape for your grid.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_9" o:spid="_x0000_i1056"
+ type="#_x0000_t75" style='width:125.25pt;height:219.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image014.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=167 height=293
+src="Correlation_Tracking_Guide_2010-Dateien/image015.jpg" v:shapes="Bild_x0020_9"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The different types are a
+rectangular or circular grid, two markers, or a line of markers. If you choose
+a rectangular grid type, the pointer will change from an arrow to a horizontal
+and a vertical line which will help you finding the right position. The idea is
+to click on the two diagonal positions which will define the outer dimensions
+of a box containing the grid.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1055" type="#_x0000_t75"
+ alt="grid_generator_4" style='width:414.75pt;height:200.25pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image016.jpg"
+  o:title="grid_generator_4"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=267
+src="Correlation_Tracking_Guide_2010-Dateien/image016.jpg"
+alt="grid_generator_4" v:shapes="_x0000_i1055"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 6: The horizontal and vertical lines allow
+an accurate positioning of the grid.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The selected box will be shown in
+the image and a dialog will pop up to ask your for the input of a raster point
+distance in x and y direction. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1054" type="#_x0000_t75"
+ alt="grid_generator_5" style='width:243pt;height:99pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image017.jpg"
+  o:title="grid_generator_5"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=324 height=132
+src="Correlation_Tracking_Guide_2010-Dateien/image017.jpg"
+alt="grid_generator_5" v:shapes="_x0000_i1054"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 7: Horizontal (x-direction) and vertical
+(y-direction) grid resolution with a default resolution of 50 pixel distance
+between raster points.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The code will now generate the chosen
+grid and will plot it on top of the sample image. The last dialogue will ask
+you if you want to use the generated grid and save the grid_x.dat and
+grid_y.dat to be processed, if you want to try again or if you want to choose
+another grid type.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1053" type="#_x0000_t75"
+ alt="grid_generator_7" style='width:117pt;height:97.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image018.jpg"
+  o:title="grid_generator_7"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=156 height=130
+src="Correlation_Tracking_Guide_2010-Dateien/image018.jpg"
+alt="grid_generator_7" v:shapes="_x0000_i1053"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 8: The last menu will allow you to accept
+the grid (which will be saved), try again or choose another grid type.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>You will be asked if you would like
+to add more points <span class=SpellE>ro</span> if you would like to remove
+markers. If you are happy with the result just hit END.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:35.45pt;text-align:justify;text-indent:
+-14.15pt'><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1052" type="#_x0000_t75"
+ style='width:125.25pt;height:219.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image019.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=167 height=293
+src="Correlation_Tracking_Guide_2010-Dateien/image020.jpg" v:shapes="_x0000_i1052"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify'><u><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'>B) Calculate
+Correlation with <span class=SpellE>large_displ.m</span>:<o:p></o:p></span></u></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>Large_displ.m</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> was written to compensate for large
+displacements between images. This can be due to a low image acquisition rate
+or large oscillations. Therefore we do shrink the images and let the code
+determine the displacement of the images relative to each other and let this
+feed back into the second round. There the code continues as described in the
+normal <span class=SpellE>automate_image.m</span> script with a dense grid. You
+need to provide two different grids. <span class=SpellE>Large_displ.m</span>
+will guide you through the steps, first you will be asked for a reduction
+factor and a coarse grid (saved in grid_x_small.dat and grid_y_small.dat) for a
+pre-calculation of the displacement in the images. Then you will be asked for a
+fine grid to calculate the displacement in the original images.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_28" o:spid="_x0000_i1051"
+ type="#_x0000_t75" style='width:281.25pt;height:93.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image021.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=375 height=125
+src="Correlation_Tracking_Guide_2010-Dateien/image022.jpg" v:shapes="Bild_x0020_28"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 9: Enter the reduction factor to shrink
+the original images, e.g. a factor of 5.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_40" o:spid="_x0000_i1050"
+ type="#_x0000_t75" style='width:273.75pt;height:72.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image023.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=365 height=97
+src="Correlation_Tracking_Guide_2010-Dateien/image024.jpg" v:shapes="Bild_x0020_40"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 10: Press “OK”<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1049" type="#_x0000_t75"
+ style='width:414.75pt;height:307.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image010.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=410
+src="Correlation_Tracking_Guide_2010-Dateien/image025.jpg" v:shapes="_x0000_i1049"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 11: Select your first image.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>In this dialog the first (base)
+image can be selected in which the grid can be created. After selecting this
+base image, the image will be opened and a new dialog pops up to ask you if you
+would like to load an existing grid. If you want to create a new one just hit
+No and <span class=GramE>go</span> ahead.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_8" o:spid="_x0000_i1048"
+ type="#_x0000_t75" style='width:414.75pt;height:403.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image012.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=538
+src="Correlation_Tracking_Guide_2010-Dateien/image026.jpg" v:shapes="Bild_x0020_8"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 12: The opened base image and the menu to
+select a preexisting grid.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>You will get a new choice where you
+can select a shape for your grid.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1047" type="#_x0000_t75"
+ style='width:117.75pt;height:212.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image027.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=157 height=283
+src="Correlation_Tracking_Guide_2010-Dateien/image028.jpg" v:shapes="_x0000_i1047"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 13: Create a coarse grid for a
+pre-calculation.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The different types are a rectangular
+or circular grid, two markers, or a line of markers. If you choose a
+rectangular grid type, the pointer will change from an arrow to a horizontal
+and a vertical line which will help you finding the right position. The idea is
+to click on the two diagonal positions which will define the outer dimensions
+of a box containing the grid.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_10" o:spid="_x0000_i1046"
+ type="#_x0000_t75" alt="grid_generator_4" style='width:414.75pt;height:200.25pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image016.jpg"
+  o:title="grid_generator_4"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=267
+src="Correlation_Tracking_Guide_2010-Dateien/image016.jpg"
+alt="grid_generator_4" v:shapes="Bild_x0020_10"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 14: The horizontal and vertical lines
+allow an accurate positioning of the grid.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The selected box will be shown in
+the image and a dialog will pop up to ask your for the input of a raster point
+distance in x and y direction. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_11" o:spid="_x0000_i1045"
+ type="#_x0000_t75" alt="grid_generator_5" style='width:243pt;height:99pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image017.jpg"
+  o:title="grid_generator_5"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=324 height=132
+src="Correlation_Tracking_Guide_2010-Dateien/image017.jpg"
+alt="grid_generator_5" v:shapes="Bild_x0020_11"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 15: Horizontal (x-direction) and vertical
+(y-direction) grid resolution with a default resolution of 50 pixel distance
+between raster points. <span class=GramE>As mentioned before use 50-100 markers
+for the whole image.</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The code will now generate the chosen
+grid and will plot it on top of the sample image. The last dialogue will ask
+you if you want to use the generated grid and save the grid_x_small.dat and
+grid_y_small.dat to be processed, if you want to try again or if you want to
+choose another grid type.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_12" o:spid="_x0000_i1044"
+ type="#_x0000_t75" alt="grid_generator_7" style='width:117pt;height:97.5pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image018.jpg"
+  o:title="grid_generator_7"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=156 height=130
+src="Correlation_Tracking_Guide_2010-Dateien/image018.jpg"
+alt="grid_generator_7" v:shapes="Bild_x0020_12"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 16: This menu will allow you to accept the
+grid (which will be saved), try again or choose another grid type.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>You will be asked if you would like
+to add more points or if you would like to remove markers. If you are happy
+with the result just hit END.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_13" o:spid="_x0000_i1043"
+ type="#_x0000_t75" style='width:125.25pt;height:219.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image019.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=167 height=293
+src="Correlation_Tracking_Guide_2010-Dateien/image020.jpg" v:shapes="Bild_x0020_13"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 17: Main menu of the grid generator.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>All this work was done for the
+pre-calculation of the large displacement, now do the same for the accurate
+analyze of the original images.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_55" o:spid="_x0000_i1042"
+ type="#_x0000_t75" style='width:161.25pt;height:72.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image029.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=215 height=97
+src="Correlation_Tracking_Guide_2010-Dateien/image030.jpg" v:shapes="Bild_x0020_55"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 18: Press “OK”. Then select the first
+image for your analysis.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_7" o:spid="_x0000_i1041"
+ type="#_x0000_t75" style='width:414.75pt;height:307.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image010.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=410
+src="Correlation_Tracking_Guide_2010-Dateien/image025.jpg" v:shapes="Bild_x0020_7"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 19: Select your first image, same as for
+the coarse analysis.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_31" o:spid="_x0000_i1040"
+ type="#_x0000_t75" style='width:109.5pt;height:104.25pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image031.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=146 height=139
+src="Correlation_Tracking_Guide_2010-Dateien/image032.jpg" v:shapes="Bild_x0020_31"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 20: If you want to use an old grid press
+“Yes” and select your old gridx.dat and gridy.dat files otherwise press “No”.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_49" o:spid="_x0000_i1039"
+ type="#_x0000_t75" style='width:117.75pt;height:212.25pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image027.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=157 height=283
+src="Correlation_Tracking_Guide_2010-Dateien/image028.jpg" v:shapes="Bild_x0020_49"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 21: Create a grid for the image
+correlation calculation. Here you can use as many markers you want, if you have
+enough time &#9786;. Finish with “END”.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The Correlation calculation will
+start immediately. Go on with point 4.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l0 level1 lfo8;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><u><span lang=EN-US style='font-size:16.0pt;
+mso-ansi-language:EN-US'>Run correlation with <span class=SpellE>automate_image.m</span>
+or with automate_image_mp_2009b.m:<o:p></o:p></span></u></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The automation function is the central
+function and processes all markers and images. Therefore the ‘Current
+directory’ in <span class=SpellE>matlab</span> has to be the folder where <span
+class=SpellE>automate_image.m</span> finds the filenamelist.mat, grid_x.dat and
+grid_y.dat as well as the images specified in ‘filenamelist.mat’. Just type ‘<span
+class=SpellE>automate_image</span>;’ and press ‘ENTER’ at the command line of <span
+class=SpellE>matlab</span>. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>At first, <span class=SpellE>automate_image.m</span>
+will open the first image in the filenamelist.mat and plot the grid as green
+crosses on top. The next step will need some time since all markers in that image
+have to be processed for the first image. After correlating image one and two
+the new raster positions will be plotted as red crosses. On top of the image
+and the green crosses. The next dialog will ask you if you want to continue
+with this correlation or cancel. If you press continue, ‘<span class=SpellE>automate_image.m</span>’
+will process all images in the ‘filenamelist.mat’. The time it will take to
+process all images will be plotted on the figure but can easily be estimated by
+knowing the raster point processing speed (see processing speed). <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Depending on the number of images
+and markers you are tracking, this process can take between seconds and days.
+For 100 images and 200 markers a decent computer should need 200 seconds. To
+get a better resolution you can always run jobs overnight (e.g. 6000 markers in
+1000 images) with higher resolutions. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Keep in mind that ‘CORRSIZE’ which
+you changed in ‘<span class=SpellE>cpcorr.m</span>’ will limit your resolution.
+If you chose to use the 15 pixel as suggested a marker distance of 30 <span
+class=GramE>pixel</span> will lead to a full cover of the strain field.
+Choosing smaller marker distances will lead to an interpolation since two
+neighboring markers share pixels. Nevertheless a higher marker density can
+reduce the noise of the strain field.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>When all images are processed, <span
+class=SpellE>automate_image</span> will write the files validx.mat, validy.mat,
+validx.txt and validy.txt. The text files are meant to store the result in a
+format which can be accessed by other programs also in the future. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>To stop <span class=SpellE>automate_image</span>
+use the key combination ‘<i style='mso-bidi-font-style:normal'>Ctrl</i> c’. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>In case of a crashes, errors
+generating the right <span class=SpellE>filenamelist</span> or the interruption
+of the correlation process by the user, the function ‘<span class=SpellE>recover_correlation.m</span>’
+can be called which extracts the last marker positions sets up ‘<span
+class=SpellE>automate_image.m</span>’ and continues at the last image.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l0 level1 lfo8;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><span
+style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><u><span lang=EN-US style='font-size:16.0pt;
+mso-ansi-language:EN-US'>Analyze the displacement with <span class=SpellE>displacement.m</span>:<o:p></o:p></span></u></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>As last part, the post processing is
+the most interesting and awarding step since you actually can analyze the
+collected displacement data. The <span class=SpellE>displacement.m</span>
+function is a small collection of functions which allows you to review the
+displacement field, calculate the strain or delete markers which were not
+correlated or tracked very well. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>To start, type into the command
+window ‘displacement;’ or ‘[<span class=SpellE>validx<span class=GramE>,validy</span></span>]=displacement;’
+in case you want to save the changed files (<span class=SpellE>validx</span>
+and <span class=SpellE>validy</span>) from the workspace (see chapter 3). A
+window will pop up asking you for the validx.dat file which contains the
+x-displacement off all markers in all images, followed by a dialog for the
+validy.dat containing the y data. After ‘<span class=SpellE>displacement.m</span>’
+has loaded both files, a new window pops up <span class=GramE>which allows you
+to choose between different options.</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_14" o:spid="_x0000_i1038"
+ type="#_x0000_t75" style='width:234.75pt;height:408.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image033.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=313 height=545
+src="Correlation_Tracking_Guide_2010-Dateien/image034.jpg" v:shapes="Bild_x0020_14"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 22: The <span class=SpellE>displacement.m</span>
+function allows cleaning up the data set selecting parts of it plot the
+displacement or measure the strain in x- and y-direction.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>For a typical analysis you always
+have to delete some of the markers with did not all too well during the
+correlation or peak fitting step. This can happen e.g. due to marker movement
+during the test, changing light conditions or in case of the correlation
+technique due to the fact that the sample surface did not provide enough
+characteristics. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>We start with clicking on the <b
+style='mso-bidi-font-weight:normal'>‘3D Mesh Plot of Displacement’</b> button
+which will bring up a new window and a dialog asking if you want to create a
+video. Clicking on ‘yes’ will create a new folder called video and the 3D
+displacement plot of each image will be saved as *.jpg. The click on the no
+button will just start the 3D displacement plot. This part of the ‘<span
+class=SpellE>displacement.m</span>’ allows you to watch displacement (z-axis)
+versus location (x- and y-axis) for all images. To get a better 3-dimensional
+understanding all markers are projected as green dots on the plane normal to
+the y axis. The Image number will be shown in the plot. It has to be noted that
+the orientation of the strain depends on the orientation of the image during
+the correlation process. The x-axis in the plot is the horizontal direction in
+the image and the y-direction the perpendicular direction. The plotted
+displacement on the z-axis is always the x-displacement of the data contained
+in validx.mat and validy.mat. To look at the y displacement the user has to
+wait for all images to be plotted and then after the displacement-dialog
+appears again, click the button ‘<b style='mso-bidi-font-weight:normal'>Rotate
+Orientation (exchange x and y)</b>’. This will exchange <span class=SpellE>validx</span>
+and <span class=SpellE>validy</span> and clicking again on the <b
+style='mso-bidi-font-weight:normal'>‘3D Mesh Plot of Displacement’ </b>button
+will now show the displacement in the y-direction. The user has to keep track
+of this change since it will affect all plotting and strain measurement steps
+lying ahead during the same ‘<span class=SpellE>displacement.m</span>’ session.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_15" o:spid="_x0000_i1037"
+ type="#_x0000_t75" style='width:415.5pt;height:369pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image035.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=554 height=492
+src="Correlation_Tracking_Guide_2010-Dateien/image036.jpg" v:shapes="Bild_x0020_15"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 23: 3D Displacement versus x- and
+y-position. The orientation of the x-axis is the horizontal in the analyzed
+image and the y-axis is the vertical. The displacement is always the x-<span
+class=SpellE>diplacement</span> until you exchange <span class=SpellE>validx</span>
+and <span class=SpellE>validy</span> with the ‘<b style='mso-bidi-font-weight:
+normal'>Rotate Orientation (exchange x and y)</b>’ button.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The next step is to get rid of badly
+tracked markers. This can be done in three different ways:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>delete
+single markers, click ‘<b style='mso-bidi-font-weight:normal'>Remove badly
+tracked marker, one by one (Position)</b>’<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>delete
+a bunch of markers at once, click ‘<b style='mso-bidi-font-weight:normal'>Delete
+multiple markers (Position)</b>’ <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-list:Ignore'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=GramE><span lang=EN-US
+style='mso-ansi-language:EN-US'>delete</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'> a bunch of markers from the displacement
+versus x position plot, click ’<b style='mso-bidi-font-weight:normal'>Delete
+markers from displacement vs. position plot</b>’.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The first two will provide you with
+a top down view with x- and y axis being the horizontal and vertical direction
+in the analyzed image and the displacement is expressed as underlying colors.
+The third option will show the projected <span class=GramE>markers which allows</span>
+you to sometimes more easily access the peaks. You have to play around with
+these two different views and rotate the orientation back and forth while you
+are checking through the images until you get a clean data set. This requires
+some practice, therefore take your time and analyze the data carefully before
+you really delete a bunch of markers.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>‘<b style='mso-bidi-font-weight:
+normal'>Remove badly tracked marker, one by one (Position)</b>’ will allow you
+to click on markers which are not at the right place. The marker with the
+highest displacement value will be a red dot while the marker with the lowest
+displacement will be a blue dot. By clicking close to one of the markers the
+plot will be updated to the new displacement field and the color code will be
+updated to the new highest and lowest displacement value.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>‘<b style='mso-bidi-font-weight:
+normal'>Delete multiple markers (Position)</b>’ will allow you to choose a
+rectangle and all markers in it will be deleted.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The same applies to the ’<b
+style='mso-bidi-font-weight:normal'>Delete markers from displacement vs.
+position <span class=GramE>plot<span style='font-weight:normal'>’,</span></span></b>
+it is just a different view of the markers.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'>Delete markers moving relative to their neighbors </span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'>which finds the next 10 or 20
+neighbor markers and plots the relative distance to these guys. If you acquired
+a lot of markers and images that may take a while. If you want a noise free
+image this tool allows you to find the bad guys jumping around between
+positions:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Bild_x0020_16" o:spid="_x0000_i1036" type="#_x0000_t75" style='width:282pt;
+ height:84.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image037.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=376 height=113
+src="Correlation_Tracking_Guide_2010-Dateien/image038.jpg" v:shapes="Bild_x0020_16"><![endif]></span></b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Bild_x0020_17" o:spid="_x0000_i1035" type="#_x0000_t75" style='width:415.5pt;
+ height:369pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image039.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=554 height=492
+src="Correlation_Tracking_Guide_2010-Dateien/image040.jpg" v:shapes="Bild_x0020_17"><![endif]></span></b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The red line <span class=SpellE>markes</span>
+the maximum allowed difference to the other markers and the cross is where your
+mouse is hovering. If you click a second time where the mouse is in the figure,
+the minimum and maximum allowed relative displacement to the next neighbors
+would be just 0.11 pixels. This function helps a lot cleaning up your data set.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After cleaning up the data set and
+if you have started the ‘<span class=SpellE>displacement.m</span>’ file with ‘[<span
+class=SpellE>validx<span class=GramE>,validy</span></span>]=displacement;’, you
+will find <span class=SpellE>validx</span> and <span class=SpellE>validy</span>
+as variables in the workspace. Right-click on them and save the selection with
+a different name than validx.mat and validy.mat and <span class=SpellE>nect</span>
+time you open up ‘<span class=SpellE>displacement.m</span>’ choose them. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After cleaning up and saving the
+data you will want to measure strain. Here also two ways you can choose. The
+first one is straight forward by just clicking on either ‘<b style='mso-bidi-font-weight:
+normal'>Strain Measurement between 2 Points</b>’ which will let you choose two
+points or ‘<b style='mso-bidi-font-weight:normal'>1D Average Strain Measurement</b>’
+which will use all points available. The second one is to select markers with ‘<b
+style='mso-bidi-font-weight:normal'>Select Markers to Analyze</b>’ from a
+certain location and then jump back to the ‘<span class=SpellE>displacement.m</span>’
+and then calculate the strain. Again it is important to keep track of all ‘<b
+style='mso-bidi-font-weight:normal'>Rotate Orientation</b>’ operations since
+you will analyze in both cases the x-displacement versus the x-position. In
+case the data was not rotated, the strain in horizontal direction in the image
+will be measured. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=GramE><span lang=EN-US style='mso-ansi-language:EN-US'>After clicking on
+‘<b style='mso-bidi-font-weight:normal'>Strain Measurement between 2 Points</b>’
+you will have to choose two points.</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'> The function will find the closest two points
+to where you clicked and plot the strain versus image number.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>If you are not happy with the result
+you can still choose two other markers by clicking ‘Yes’ in the next dialog. If
+you stick with these markers, you can either save the result as a text file
+(‘image_1Dstrain.txt‘) or just go back to the ‘<span class=SpellE>displacement.m</span>’
+dialog. Make sure you change the filename in the explorer before you run this
+code another time since it will just overwrite it.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_18" o:spid="_x0000_i1034"
+ type="#_x0000_t75" alt="displacement_3" style='width:331.5pt;height:302.25pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image041.jpg"
+  o:title="displacement_3"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=442 height=403
+src="Correlation_Tracking_Guide_2010-Dateien/image041.jpg" alt="displacement_3"
+v:shapes="Bild_x0020_18"><![endif]></span><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 24: From this window two points can be
+picked which will be used to measure the strain<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_19" o:spid="_x0000_i1033"
+ type="#_x0000_t75" style='width:415.5pt;height:369pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image042.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=554 height=492
+src="Correlation_Tracking_Guide_2010-Dateien/image043.jpg" v:shapes="Bild_x0020_19"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 25: Strain versus image number<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After clicking on the ‘<b
+style='mso-bidi-font-weight:normal'>1D Average Strain Measurement</b>’ button,
+the x-displacement versus x-direction will be plotted for each image and then
+fitted by a linear function. The slope is the true strain which will be plotted
+versus the image number after all images are processed. If you choose to save
+the strain versus image number you will be asked where you want to save the
+data as an ASCII file which can be opened with <span class=SpellE>matlab</span>,
+excel or just the notepad.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_20" o:spid="_x0000_i1032"
+ type="#_x0000_t75" style='width:415.5pt;height:369pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image044.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=554 height=492
+src="Correlation_Tracking_Guide_2010-Dateien/image045.jpg" v:shapes="Bild_x0020_20"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 26: The slope of the linear fit of the
+displacement versus position allows <span class=GramE>to plot</span> the true
+strain versus image number.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>If you want to analyze a special
+part of your sample it is best to use the ‘<b style='mso-bidi-font-weight:normal'>Select
+Markers to Analyze</b>’ button in the ‘<span class=SpellE>displacement.m</span>’
+menu. The menu which will pop up allows you to choose between different types
+of grids.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After you have chosen the markers
+you want to process, run ‘<b style='mso-bidi-font-weight:normal'>1D Average
+Strain Measurement</b>’ to get the strain from these markers. Clicking the ‘<b
+style='mso-bidi-font-weight:normal'>Rotate Orientation (exchange x and y)</b>’
+button and running the strain analysis again will give you the strain in the
+perpendicular direction.<o:p></o:p></span></p>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+DE;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='font-size:18.0pt;mso-ansi-language:EN-US'>5. <u>Digital Image Tracking
+Quick Guide</u> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>This guide should help you to perform a simple
+and fast analysis of your images. Before we start you should check your image
+format and the naming of your files. The preferred image format is *.tif and
+can be compressed with the <span class=SpellE>packbits</span> compression. JPEG
+or other image formats as well as MPEG video compression formats will not
+provide you with sub pixel resolution since the images are processed to save as
+much space as possible. The script we use to create a list of images to process
+(<span class=SpellE>filelist_generator.m</span>) is kind of limited to a
+certain format but it is possible to generate your own list of images which
+will be explained later. If you want to change the format or the names of your
+images you can use free programs like <span class=SpellE>Irfanview</span> (<a
+href="http://www.irfanview.com/">www.irfanview.com</a>) to batch process a huge
+number of images.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'>4
+Steps to Success:<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'>1. <u>Step:
+Filename list generation with <span class=SpellE>filelist_generator.m</span><o:p></o:p></u></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Just type ‘<span class=SpellE>filelist_generator</span>;’
+and press ‘ENTER’ at the command line of <span class=SpellE>matlab</span>. The
+following window should appear:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_21" o:spid="_x0000_i1031"
+ type="#_x0000_t75" alt="filelist_generator" style='width:243pt;height:102.75pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image007.jpg"
+  o:title="filelist_generator"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=324 height=137
+src="Correlation_Tracking_Guide_2010-Dateien/image007.jpg"
+alt="filelist_generator" v:shapes="Bild_x0020_21"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 1: Input of first and last image to create
+an image list with <span class=SpellE>filelist_generator.m</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The numbers will be the number at
+the end of each filename. After depositing these numbers in the dialog the next
+window will ask for the first 4 letters of the filenames.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_22" o:spid="_x0000_i1030"
+ type="#_x0000_t75" alt="filelist_generator_2" style='width:243pt;height:1in;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image008.jpg"
+  o:title="filelist_generator_2"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=324 height=96
+src="Correlation_Tracking_Guide_2010-Dateien/image008.jpg"
+alt="filelist_generator_2" v:shapes="Bild_x0020_22"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 2: Input for the first 4 letters in <span
+class=SpellE>filelist_generator.m</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The next step is to save the file
+name list into the folder with the images to process.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_23" o:spid="_x0000_i1029"
+ type="#_x0000_t75" alt="filelist_generator_3" style='width:252pt;height:162pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image009.jpg"
+  o:title="filelist_generator_3"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=336 height=216
+src="Correlation_Tracking_Guide_2010-Dateien/image009.jpg"
+alt="filelist_generator_3" v:shapes="Bild_x0020_23"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Fig. 3: Dialog to save the file name list into
+the folder with the images to analyze.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l4 level1 lfo10;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><u><span lang=EN-US style='font-size:16.0pt;
+mso-ansi-language:EN-US'>Run tracking with <span class=SpellE>peak_labelling.m</span>,
+<span class=SpellE>pickpeak.m</span> and <span class=SpellE>strain_lineprofile.m</span>:<o:p></o:p></span></u></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'>‘<span class=SpellE>peak_labelling.m</span>’<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>If you trust the automatic peak
+labeling, you can use ‘<span class=SpellE>peak_labelling.m</span>’. Type ‘[<span
+class=SpellE>validx<span class=GramE>,validy</span></span>]=<span class=SpellE>peaklabelling</span>;’
+It will scan your image and subtract the hopefully dark background and identify
+maxima with a value higher <span class=SpellE>then</span> a certain grey value.
+It will ask you for an image (the base image) which will be used to identify
+the peaks and run a first fit through all of them.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_24" o:spid="_x0000_i1028"
+ type="#_x0000_t75" alt="grid_generator_1" style='width:252pt;height:164.25pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image046.jpg"
+  o:title="grid_generator_1"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=336 height=219
+src="Correlation_Tracking_Guide_2010-Dateien/image046.jpg"
+alt="grid_generator_1" v:shapes="Bild_x0020_24"><![endif]></span><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=GramE><span lang=EN-US style='mso-ansi-language:EN-US'>Fig.</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> : Open the first image for
+automatic peak identification.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After opening the first image ‘<span
+class=SpellE>peak_labelling</span>’ will plot the image as intensity plot where
+blue is low and red is high intensity. You will be asked to draw a box in which
+‘<span class=SpellE>peak_labelling</span>’ will check for peaks. After
+selecting the area, it will take some time to process. After identifying the
+peaks ‘peak labeling will automatically start to fit all peaks and plot the
+residuals of all peaks. Minimizing the <span class=SpellE>matlab</span> console
+window will increase processing speed. The title in the figure will indicate
+the status of the processing and the estimated time it will take.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_25" o:spid="_x0000_i1027"
+ type="#_x0000_t75" alt="peaklabelling01" style='width:342pt;height:306pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image047.jpg"
+  o:title="peaklabelling01"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=456 height=408
+src="Correlation_Tracking_Guide_2010-Dateien/image047.jpg" alt=peaklabelling01
+v:shapes="Bild_x0020_25"><![endif]></span><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=GramE><span lang=EN-US style='mso-ansi-language:EN-US'>Fig.</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> : Select an area to find peaks.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>At the end of the processing, all
+relevant files (‘fitxy.dat’ contains the fitting parameters for each point,
+‘validx.dat/.mat’ contains the x-position of each peak, and ‘validy.dat/.mat’
+contains the y-position of each peak) will be saved in the current folder. One
+relevant parameter is not directly accessible since this approach is trying to
+automate the whole processing step but can be changed in the ‘<span
+class=SpellE>peak_labelling.m</span>’ file.<span style='mso-spacerun:yes'> 
+</span>It can be found in ‘<span class=SpellE>peak_labelling.m</span>’ in line
+182 and 183 where the residuals of the fits in x and y directions are validated
+to guarantee a flawless processing. If a fit does not work at all, the function
+will crash. To prevent this I let the function decide very early which peak is
+good or bad. Only the fits with a low residual will be used. Therefore you
+should make sure you do not use too high values here. You will also find a
+similar value in the function ‘<span class=SpellE>sortvalidpoints.m</span>’
+which is called by ‘<span class=SpellE>peak_labelling.m</span>’ at the end of
+the processing to create ‘<span class=SpellE>validx</span>’ and ‘<span
+class=SpellE>validy</span>’. You have to change this value in line 39 <span
+class=GramE>too,</span> otherwise the peaks will be deleted at the end. Since
+the input file fitxy.dat is saved before these points are deleted, you can
+still play around with this value and see how it affects your resulting <span
+class=SpellE>validx</span> and <span class=SpellE>validy</span>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'>‘<span class=SpellE>pickpeak.m</span>’</span></b><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After starting the function by
+typing at the console ‘<span class=SpellE>pickpeak</span>;<span class=GramE>’,</span>
+the function will ask you for the first image and then will need to know how
+many peaks you want to identify.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_26" o:spid="_x0000_i1026"
+ type="#_x0000_t75" alt="pickpeak01" style='width:242.25pt;height:1in;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image048.jpg"
+  o:title="pickpeak01"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=323 height=96
+src="Correlation_Tracking_Guide_2010-Dateien/image048.jpg" alt=pickpeak01
+v:shapes="Bild_x0020_26"><![endif]></span><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:18.0pt;text-align:center'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span class=GramE><span
+lang=EN-US style='mso-ansi-language:EN-US'>Fig.</span></span><span lang=EN-US
+style='mso-ansi-language:EN-US'> : How many peaks do you want to identify for
+tracking by ‘<span class=SpellE>pickpeak.m</span>’?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After you typed in a number (e.g.
+20), the function will present you the selected image and you can click boxes
+around the peaks you want to track. For each peak you have to define a box by
+clicking on the lower left and the upper right of each peak. The center of each
+box will be highlighted by a blue circle. It is very important that you choose
+a box which is wide enough for the curve fitting to get enough data points. But
+if you choose too big boxes you will trap several peaks in them and the
+residual of the fit will be high which the software will interpret as bad fit.
+A box size of 2-4 times of the visible peaks seems to be a good idea. Also it
+is better to choose round shaped peaks since this provides a better <span
+class=SpellE>greyscale</span> profile if you choose to use a gauss function for
+the fitting process. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After you picked all peaks, the
+software will fit all peaks which will be displayed in a small window and after
+the first image processed you will only see the actual image and with blue
+circles on top indicating the peaks which are still in the fitting process.
+Vanishing circles indicate that the peak could not be fitted any more.<span
+style='mso-spacerun:yes'>  </span>The title in this window will tell you the
+approximated total processing time and how much percent of the images are
+processed. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>After all images are processed, the
+data will be saved the same way as in the ‘<span class=SpellE>peak_labelling.m</span>’
+function. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'>‘<span class=SpellE>strain_lineprofile.m</span>’<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>This function will track two <span
+class=SpellE>greyscale</span> maxima in a line profile which you can choose
+from an image. After opening the first image, the software will let you to
+choose a horizontal line at a vertical position in the image. The next dialog
+will ask you which integration width (in vertical, y-direct) you want to use.
+Default is 40 but you should keep in mind that it should be either much wider
+or much narrower than your markers. If you choose the same width and the
+markers are drifting in y direction the peaks in the <span class=SpellE>greyscale</span>
+profile will change which will translate as error into your strain analysis. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>The calculated <span class=SpellE>greyscale</span>
+profile will then be plotted and you can choose two peaks. The first click
+should be located on the horizontal level of the background and the vertical
+position of the first peak and the second click should be placed at the
+horizontal level of the average peak amplitude of the two chosen peaks and the
+vertical position of the second peak. After the second click, the function will
+fit two gauss functions to the <span class=SpellE>greyscale</span> profile and
+plot a red fitting function on top of the data while processing all images. The
+peak positions will be saved in the file ‘raw_peak_results.dat’ and the strain
+as strain_x.dat as well as a two column file with the image number in the first
+column and the strain in the second column. All files are tab delimited ASCII
+format and can be opened e.g. with excel. You cannot use ‘<span class=SpellE>displacement.m</span>’
+for the strain analysis since this data is only 1D with 2 points.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Bild_x0020_27" o:spid="_x0000_i1025"
+ type="#_x0000_t75" alt="line_profile" style='width:414.75pt;height:345pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Correlation_Tracking_Guide_2010-Dateien/image049.jpg"
+  o:title="line_profile"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=553 height=460
+src="Correlation_Tracking_Guide_2010-Dateien/image049.jpg" alt="line_profile"
+v:shapes="Bild_x0020_27"><![endif]></span><span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+class=GramE><span lang=EN-US style='mso-ansi-language:EN-US'>Fig.</span></span><span
+lang=EN-US style='mso-ansi-language:EN-US'> : <span class=SpellE>Greyscale</span>
+<span class=SpellE>lineprofile</span>, ready to pick two peaks.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l4 level1 lfo10;tab-stops:list 36.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:16.0pt;mso-ansi-language:EN-US'><span
+style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><u><span lang=EN-US style='font-size:16.0pt;
+mso-ansi-language:EN-US'>Run <span class=SpellE>displacement.m</span>:<o:p></o:p></span></u></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Please check step 4 in ‘4. <u>Digital
+Image Correlation Quick Guide</u>’.<o:p></o:p></span></p>
+
+<span lang=EN-US style='font-size:18.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+DE;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='font-size:18.0pt;mso-ansi-language:EN-US'>6. Extra scripts and
+information you might find useful<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>‘<span class=SpellE>stress_strainmatch.m</span>’</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Matching stress and strain can become a pain if
+they were captured with different programs and/or computers, which can be the
+case if the strain is captured with a camera. This little script can read in
+stress and strain files (as long as they are ASCII files) and match the two
+together. It needs the ‘time_image.txt’ which is created by the ‘<span
+class=SpellE>filelist_generator.m</span>’, the strain file and the stress file.
+You have to choose which column is stress and strain in each file. After it has
+loaded all the files the script will ask you for the time between starting the
+stress measurement and the first image file. The stress versus image plot shows
+you immediately if the chosen value makes sense and the file
+‘stress_image_x.txt’ will be written to the ‘Current Folder’ on the hard disk.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>‘<span class=SpellE>Markerplotting.m</span>’</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>This script will plot the markers as small dots
+onto the analyzed images. You have to provide <span class=SpellE>validx.m</span>,
+<span class=SpellE>validy.m</span>, <span class=SpellE>filenamelist</span> and
+the images in the ‘Current Folder’. After <span class=SpellE>staring</span> the
+script you will be asked if you want to create a video or not. If you click
+‘yes’ a folder ‘<span class=SpellE>Video_Markers</span>’ will be created and
+each frame captured as a *.jpg file.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>Input and output
+files:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>Image files</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'> should be 8 bit <span class=SpellE>greyscale</span>
+Tiff (*.tif) images and should be named with <span class=GramE>a</span>
+increasing number at the end. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>If you want to use ‘<span class=SpellE>filelist_generator.m</span>’,
+the filename should be something like ‘PIC0’ or<span style='mso-spacerun:yes'> 
+</span>‘PIC1’ plus the number at the end scaling from ‘0001’ to<span
+style='mso-spacerun:yes'>  </span>‘9999’. The full name would be for the first
+file ‘PIC10001.tif’. If you need to process more than 9999 image then you have
+to modify ‘<span class=SpellE>filelist_generator.m</span>’ or write an email to
+us. The <b style='mso-bidi-font-weight:normal'>‘filenamelist.mat’</b> is a <span
+class=SpellE>matlab</span> file since it was easier to combine text and numbers
+into one file by just saving it in this format. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>‘time_image.txt’</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'> contains the time the image was
+captured. Please keep in mind that using other software to change the name or
+the format after capturing the images can lead to a change of the date and
+capturing time of the images. It happens that the software will change the name
+of the images and the new creation date and time of each image will be the time
+it was renamed. Programs like <span class=SpellE>Irfanview</span> have the
+option to preserve the original time of the images. This option has to be
+checked to make sure you can match stress and strain at the end of your
+analysis.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>‘grid_x.dat’</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'> and <b style='mso-bidi-font-weight:
+normal'>‘grid_y.dat’</b> are the files containing the x- and y-pixel position
+of the starting grid created by the ‘<span class=SpellE>grid_generator.m</span>’
+function. If you want to create your own grids, you can do that with excel and
+save them as tab delimited ASCII files. Both files can be organized as column
+vectors or matrices, as long as they are equal. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>‘validx.dat’</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'> and <b style='mso-bidi-font-weight:
+normal'>‘vaildy.dat’</b> are both ASCII formatted tab delimited files which
+contain in columns the position of each marker for each image. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='mso-ansi-language:EN-US'>‘fitxy.dat’</span></b><span
+lang=EN-US style='mso-ansi-language:EN-US'> will be only saved if you use ‘<span
+class=SpellE>peak_labelling.m</span>’ or ‘<span class=SpellE>pickpeak.m</span>’
+and contains all fitting parameters for each peak. <o:p></o:p></span></p>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+DE;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='font-size:18.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>7.
+Acknowledgement</span><span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>Prof. W. N. Sharpe J. provided some helpful
+hints what would be important to the user and what would be a waste of time
+;-). I want to acknowledge him since it is always a pleasure to work in his lab
+at the JHU. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=EN-US
+style='mso-ansi-language:EN-US'>We <span class=GramE>got<span
+style='mso-spacerun:yes'>  </span>a</span> lot of help from all our colleagues
+off our near and far communities and we do appreciate this a lot. Please
+comment on our Mathworks site if you need something or if you think this tool
+works as it should.<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
